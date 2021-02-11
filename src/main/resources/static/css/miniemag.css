@@ -1,0 +1,17 @@
+.orange {
+    background-color: orange;
+}
+.image1 {
+    background: url(/static/images/carousel.jpg);
+    background-size: cover;
+}
+.homepageBar{
+    background-color: rgb(230, 92, 0);
+
+}
+.MostSelledIttems{
+    background-color: rgb(230, 92, 0);
+}
+.an{
+    background-color: rgb(230, 92, 0);
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<div xmlns:th="http://www.thymeleaf.org">
+    <h1 style="font-family: Lobster,sans-serif" class="ml-5">Shopify.ro</h1>
+    <nav class="navbar navbar-expand-sm  bg-dark navbar-dark mt-3">
+        <div class="container">
+            <!--        <a class="nav navbar-brand" href="index.html">-->
+            <!--            Shophify-->
+            <!--        </a>-->
+            <button
+                    class="navbar-toggler"
+                    data-toggle="collapse"
+                    data-target="#navigator">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navigator">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a href="/" class="nav-link">Acasa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/products" class="nav-link">Produse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/sign-up" class="nav-link"
+                        >Sign-up</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/sign-in" class="nav-link"><i class="far fa-user"></i>Autentifica-te</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/cart/show" class="nav-link"><i class="fas fa-shopping-cart"></i>Cart<sub><span th:text="${cart_item_count}"></span></sub></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

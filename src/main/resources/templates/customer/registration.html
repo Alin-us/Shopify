@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Spring Boot User Authentication</title>
+    <div th:replace="/customer/head.html"></div>
+</head>
+<body>
+<div th:insert="/customer/navBar.html"></div>
+<card class="card mx-auto" style="width: 50%">
+    <div class="card-title text-center" style="font-family: Lobster,sans-serif">
+        Registration
+    </div>
+    <div class="card-body">
+        <form class="form-group" role="form" th:action="@{/sign-up}" th:method="post" th:object="${user}">
+            <div th:if="${error}">
+                <div class="alert alert-danger" role="alert" th:text="${error}"></div>
+            </div>
+            <div>
+                <label for="name">Name</label>
+                <input class="form-control" type="text" id="name" name="name" th:field="*{name}">
+            </div>
+            <div>
+                <label for="surname">Surname</label>
+                <input class="form-control" type="text" id="surname" name="surname" th:field="*{surname}">
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input class="form-control" type="text" id="email" name="email" th:field="*{email}">
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input class="form-control" type="password" id="password" name="password" th:field="*{password}">
+            </div>
+            <input type="submit" class="btn btn-success" style="width: 90%">
+        </form>
+    </div>
+</card>
+</body>
+</html>

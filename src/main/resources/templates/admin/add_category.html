@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add category</title>
+</head>
+<body>
+<form th:action="@{/category/handleAdd}" th:object="${category}" method="post">
+    <table>
+        <tbody>
+        <tr>
+            <td><label for="name" id="categoryName">Category Name:</label></td>
+            <td><input type="text" name="name" th:value="${category.name}" id="name" placeholder="Category Name"/></td>
+        </tr>
+        <tr>
+            <td><label for="photoUrl" id="categoryPhotoUrl">PhotoUrl:</label></td>
+            <td><input type="number" id="photoUrl" name="PhotoUrl" th:value="${category.photoUrl}" placeholder="PhotoUrl"/>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="parentCategory">Category Parent:</label></td>
+            <td><select id="parentCategory" name="parentCategory">
+                <option th:each="categoryIn : ${parentCategories}" th:value="${categoryIn.id}" th:text="${categoryIn.name}"
+                        th:selected="${category.parentCategory}!= null and ${categoryIn.id} == ${category.parentCategory.id}"></option>
+            </select></td>
+        </tr>
+        </tbody>
+    </table>
+    <p><input type="hidden" th:value="${category.id}" name="id">
+    <p><input type="submit" value="Submit" onclick="myFunction()">
+
+</form>
+</body>
+</html>

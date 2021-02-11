@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add product</title>
+</head>
+<body>
+<form th:action="@{/product/handleAdd}" th:object="${product}" method="post">
+    <table>
+        <tbody>
+        <tr>
+            <td><label for="name" id="productName">Product Name:</label></td>
+            <td><input type="text" name="name" th:value="${product.name}" id="name" placeholder="Product Name"/></td>
+        </tr>
+        <tr>
+            <td><label for="price" id="productPrice">Product Price:</label></td>
+            <td><input type="number" id="price" name="price" th:value="${product.price}" placeholder="Product Price"/>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="photo" id="photo">Product Photo:</label></td>
+            <td><input type="text" id="photoUrl" name="photoUrl" th:value="${product.photoUrl}"
+                       placeholder="Product Photo"/>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="description">Product Description:</label></td>
+            <td><textarea id="description" name="description" rows="4" cols="50" th:field="${product.description}"
+                          placeholder="Product Description"></textarea></td>
+        </tr>
+        <tr>
+            <td><label for="category" id="productCategory">Product Category:</label></td>
+            <td><select id="category" name="category">
+                <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"
+                        th:selected="${product.category}!= null and ${category.id} == ${product.category.id}"></option>
+            </select></td>
+        </tr>
+        <tr>
+            <td><label for="quantity">Quantity</label></td>
+            <td><input type="number" id="quantity" name="quantity" th:value="${product.quantity}"/></td>
+        </tr>
+        </tbody>
+    </table>
+    <p><input type="hidden" th:value="${product.id}" name="id">
+    <p><input type="submit" value="Submit" onclick="myFunction()">
+
+</form>
+</body>
+</html>
+

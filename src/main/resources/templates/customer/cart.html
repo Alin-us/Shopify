@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <div th:replace="/customer/head.html"></div>
+</head>
+<body>
+<div th:insert="customer/navBar.html"></div>
+<div th:each="cartItem: ${cart.cartItemSet}">
+    <span th:text="${cartItem.product.name}"></span>
+    <span th:text="${cartItem.quantity}"></span>
+</div>
+<form th:method="post" th:action="@{/cart/checkout}">
+    <input type="submit" value="Checkout">
+</form>
+</body>
+</html>
